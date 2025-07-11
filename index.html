@@ -10,7 +10,40 @@
     <div class="app-container">
         <h1>Basic Drawing App</h1>
             <button id="clear-btn">Clear Canvas</button>
+            <button id="save-btn">Save Drawing</button><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Drawing App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>Basic Drawing App</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="color-picker">Color:</label>
+                <input type="color" id="color-picker" value="#000000">
+            </div>
+            
+            <div class="control-group">
+                <label for="brush-size">Brush Size:</label>
+                <input type="range" id="brush-size" min="1" max="50" value="5">
+                <span id="brush-size-value">5</span>
+            </div>
+            
+            <button id="clear-btn">Clear Canvas</button>
             <button id="save-btn">Save Drawing</button>
+        </div>
+        
+        <canvas id="drawing-canvas"></canvas>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
         </div>
         
         <canvas id="drawing-canvas"></canvas>
