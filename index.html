@@ -3,51 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Drawing App</title>
+    <title>Advanced Drawing App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="app-container">
-        <h1>Basic Drawing App</h1>
-            <button id="clear-btn">Clear Canvas</button>
-            <button id="save-btn">Save Drawing</button><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Drawing App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="app-container">
-        <h1>Basic Drawing App</h1>
+        <header>
+            <h1><i class="fas fa-paint-brush"></i> Advanced Drawing App</h1>
+            <div class="app-actions">
+                <button id="save-btn" title="Save (Ctrl+S)"><i class="fas fa-save"></i> Save</button>
+                <button id="load-btn" title="Load"><i class="fas fa-folder-open"></i> Load</button>
+                <button id="new-btn" title="New (Ctrl+N)"><i class="fas fa-file"></i> New</button>
+            </div>
+        </header>
         
-        <div class="controls">
-            <div class="control-group">
-                <label for="color-picker">Color:</label>
-                <input type="color" id="color-picker" value="#000000">
+        <div class="main-content">
+            <div class="toolbar">
+                <div class="tool-section">
+                    <h3><i class="fas fa-pencil-alt"></i> Tools</h3>
+                    <div class="tool-buttons">
+                        <button class="tool-btn active" data-tool="pen" title="Pen (P)"><i class="fas fa-pen"></i></button>
+                        <button class="tool-btn" data-tool="marker" title="Marker (M)"><i class="fas fa-highlighter"></i></button>
+                        <button class="tool-btn" data-tool="spray" title="Spray (S)"><i class="fas fa-spray-can"></i></button>
+                        <button class="tool-btn" data-tool="eraser" title="Eraser (E)"><i class="fas fa-eraser"></i></button>
+                    </div>
+                </div>
+                
+                <div class="tool-section">
+                    <h3><i class="fas fa-palette"></i> Colors</h3>
+                    <div class="color-pickers">
+                        <input type="color" id="primary-color" value="#000000" title="Primary Color">
+                        <input type="color" id="secondary-color" value="#ffffff" title="Secondary Color">
+                        <button id="swap-colors" title="Swap Colors (X)"><i class="fas fa-exchange-alt"></i></button>
+                    </div>
+                    <div class="color-presets">
+                        <div class="preset" style="background-color: #000000;"></div>
+                        <div class="preset" style="background-color: #ff0000;"></div>
+                        <div class="preset" style="background-color: #00ff00;"></div>
+                        <div class="preset" style="background-color: #0000ff;"></div>
+                        <div class="preset" style="background-color: #ffff00;"></div>
+                        <div class="preset" style="background-color: #ff00ff;"></div>
+                    </div>
+                </div>
+                
+                <div class="tool-section">
+                    <h3><i class="fas fa-sliders-h"></i> Settings</h3>
+                    <div class="setting">
+                        <label for="brush-size">Size: <span id="brush-size-value">10</span>px</label>
+                        <input type="range" id="brush-size" min="1" max="100" value="10">
+                    </div>
+                    <div class="setting">
+                        <label for="opacity">Opacity: <span id="opacity-value">100</span>%</label>
+                        <input type="range" id="opacity" min="1" max="100" value="100">
+                    </div>
+                    <div class="setting">
+                        <label for="background-color">Canvas BG:</label>
+                        <input type="color" id="background-color" value="#ffffff">
+                    </div>
+                </div>
+                
+                <div class="tool-section">
+                    <h3><i class="fas fa-history"></i> History</h3>
+                    <div class="history-buttons">
+                        <button id="undo-btn" title="Undo (Ctrl+Z)"><i class="fas fa-undo"></i> Undo</button>
+                        <button id="redo-btn" title="Redo (Ctrl+Y)"><i class="fas fa-redo"></i> Redo</button>
+                        <button id="clear-btn" title="Clear (Ctrl+Del)"><i class="fas fa-trash"></i> Clear</button>
+                    </div>
+                </div>
             </div>
             
-            <div class="control-group">
-                <label for="brush-size">Brush Size:</label>
-                <input type="range" id="brush-size" min="1" max="50" value="5">
-                <span id="brush-size-value">5</span>
+            <div class="canvas-container">
+                <canvas id="drawing-canvas"></canvas>
+                <div class="canvas-actions">
+                    <button id="zoom-in" title="Zoom In (Ctrl++)"><i class="fas fa-search-plus"></i></button>
+                    <button id="zoom-out" title="Zoom Out (Ctrl+-)"><i class="fas fa-search-minus"></i></button>
+                    <button id="zoom-reset" title="Reset Zoom (Ctrl+0)"><i class="fas fa-expand"></i></button>
+                </div>
             </div>
-            
-            <button id="clear-btn">Clear Canvas</button>
-            <button id="save-btn">Save Drawing</button>
         </div>
         
-        <canvas id="drawing-canvas"></canvas>
+        <div class="status-bar">
+            <span id="cursor-position">X: 0, Y: 0</span>
+            <span id="tool-info">Tool: Pen | Size: 10px</span>
+            <span id="zoom-level">Zoom: 100%</span>
+        </div>
     </div>
     
-    <script src="script.js"></script>
-</body>
-</html>
+    <dialog id="save-dialog">
+        <h2>Save Drawing</h2>
+        <div class="dialog-content">
+            <label for="filename-input">File Name:</label>
+            <input type="text" id="filename-input" value="drawing">
+            <div class="format-options">
+                <label><input type="radio" name="format" value="png" checked> PNG</label>
+                <label><input type="radio" name="format" value="jpeg"> JPEG</label>
+                <label><input type="radio" name="format" value="webp"> WebP</label>
+            </div>
+            <div class="dialog-buttons">
+                <button id="cancel-save">Cancel</button>
+                <button id="confirm-save">Save</button>
+            </div>
         </div>
-        
-        <canvas id="drawing-canvas"></canvas>
-    </div>
+    </dialog>
+    
+    <dialog id="load-dialog">
+        <h2>Load Drawing</h2>
+        <div class="dialog-content">
+            <input type="file" id="file-input" accept="image/*">
+            <div class="dialog-buttons">
+                <button id="cancel-load">Cancel</button>
+                <button id="confirm-load" disabled>Load</button>
+            </div>
+        </div>
+    </dialog>
     
     <script src="script.js"></script>
 </body>
