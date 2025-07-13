@@ -55,4 +55,4 @@ A feature-rich drawing application built with HTML5 Canvas, CSS3, and JavaScript
 ### Local Development
 1. Clone the repository:
    ```bash
-   git clone https://github.com/kanai6344/repo-name.git
+   git clone https://github.com/kanai6344/drawing-app.git
