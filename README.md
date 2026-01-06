@@ -26,7 +26,7 @@ You can view a live version of this tool at [(https://kanai6344.github.io/drawin
 - Start new drawing
 
 ### 💾 File Operations
-- Save drawings as PNG, JPEG, or WebP
+- Save drawings as PNG or JPEG
 - Load existing images to continue editing
 - Auto-save functionality
 
