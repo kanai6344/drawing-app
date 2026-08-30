@@ -2,6 +2,7 @@
 
 A feature-rich drawing application built with HTML5 Canvas, CSS, and JavaScript. This app includes multiple brush types, layers, undo/redo functionality, and export capabilities.
 
+
 ## Live Demo
 
 You can view a live version of this tool at [(https://kanai6344.github.io/drawing-app/)]
@@ -9,6 +10,7 @@ You can view a live version of this tool at [(https://kanai6344.github.io/drawin
 ## Features ✨
 
 ### 🖌️ Drawing Tools
+
 - **Pen**: Precise drawing with adjustable size
 - **Marker**: Semi-transparent highlighting effect
 - **Spray**: Spray paint effect with density control
