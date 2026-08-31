@@ -17,12 +17,14 @@ You can view a live version of this tool at [(https://kanai6344.github.io/drawin
 - **Eraser**: Remove parts of your drawing
 
 ### 🎨 Color Management
+
 - Primary/secondary color selection
 - Color presets for quick access
 - Color swap with one click
 - Background color customization
 
 ### ⏳ History
+
 - 20-step undo/redo functionality
 - Clear canvas option
 - Start new drawing
