@@ -28,7 +28,6 @@ You can view a live version of this tool at [(https://kanai6344.github.io/drawin
 
 - 20-step undo/redo functionality
 - Clear canvas option
-- Start new drawing
 
 ### 💾 File Operations
 - Save drawings as PNG or JPEG
